@@ -1,0 +1,15 @@
+version: '2.0'
+services:
+  lms:
+    build: .
+    image: mzander1/rpi-lms:7.9.1
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+      - "3483:3483"
+      - "3483:3483/udp"
+    volumes:
+      - /opt/lms/persist:/var/lib/squeezeboxserver
+      - /opt/lms/log:/var/log/squeezeboxserver
+      - /opt/lms/media:/media
+      - /etc/localtime:/etc/localtime:ro
